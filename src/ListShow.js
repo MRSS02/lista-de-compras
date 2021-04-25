@@ -7,11 +7,12 @@ function ListShow(props) {
   function renderTextContent(element, index) {
       return (
         <div className="ListedItem">
+          <h3>{element.name}</h3>
           <p className="ListedDetails">
-            {element} <br />
-            Quantidade: {props.buyQuantity[props.id[index]]}<br />
-            Valor: R${Math.floor(props.price[index])},
-            {(props.price[index] - Math.floor(props.price[index])).toFixed(2).substring(2)}
+            {element.description} <br />
+            Quantidade: {props.buyQuantity[element.id]}<br />
+            Valor: R${Math.floor(element.price)},
+            {(element.price - Math.floor(element.price)).toFixed(2).substring(2)}
           </p>
         </div>
       )
@@ -19,12 +20,13 @@ function ListShow(props) {
 
   let renderedText = (
     <div id="ListShow">
-      {props.list.map((element, index) =>
+      {props.buyList.map((element, index) =>
         renderTextContent(element, index))}
       <br />
-      Valor total: R${Math.floor(props.totalValue)},
-      {(props.totalValue - Math.floor(props.totalValue)).toFixed(2).substring(2)}
-
+      <div className="ListedItem">
+        Valor total: R${Math.floor(props.totalValue)},
+        {(props.totalValue - Math.floor(props.totalValue)).toFixed(2).substring(2)}
+      </div>
     </div>
   );
 

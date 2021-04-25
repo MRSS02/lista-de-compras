@@ -3,50 +3,53 @@ import ReactDOM from 'react-dom';
 
 function ShopList(props) {
 
-  function addItem(index) {
+  function addItem(element, index) {
     let newBuyQuantity = props.buyQuantity.slice()
     newBuyQuantity[index] += 1;
-    props.setBuyQuantity(newBuyQuantity)
     if (props.buyQuantity[index] == 0) {
-      props.setList([...props.list, props.listedElements[index]]);
-      props.setPrice([...props.price, props.listedPrice[index]]);
-      props.setId([...props.id, index])
+      props.setBuyList([...props.buyList, { name: element.name,
+      description: element.description,
+      price: element.price,
+      id: index,
+      }])
     }
+    props.setBuyQuantity([...newBuyQuantity])
+
   }
 
   function removeItem(index) {
+    let newBuyQuantity = props.buyQuantity.slice()
     if (props.buyQuantity[index] != 0) {
-      let newBuyQuantity = props.buyQuantity.slice()
       newBuyQuantity[index] -= 1;
-      props.setBuyQuantity(newBuyQuantity)
     }
-    if (props.buyQuantity[index] == 0) {
-      let newList = [...props.list]
-      newList.splice(props.id.indexOf(index), 1)
-      let newPrice = [...props.price]
-      newPrice.splice(props.id.indexOf(index), 1)
-      props.setList(newList);
-      props.setPrice(newPrice);
+    if (props.buyQuantity[index] == 1) {
+      let newList = [...props.buyList]
+      newList.splice(props.buyList.indexOf(props.buyList.find(item => item.id = index)), 1)
+      console.log(props.buyList.indexOf(props.buyList.find(item => item.id = index)))
+      props.setBuyList([...newList])
     }
+    props.setBuyQuantity([...newBuyQuantity])
   }
 
   function renderTextContent(element, index) {
       return (
         <div className="ListedItem">
+          <h3>{element.name}</h3>
           <p className="ListedDetails">
-            {element} <br />
-            R${Math.floor(props.listedPrice[index])},
-            {(props.listedPrice[index] - Math.floor(props.listedPrice[index])).toFixed(2).substring(2)}
+            {element.description} <br />
+
+            R${Math.floor(element.price)},
+            {(element.price - Math.floor(element.price)).toFixed(2).substring(2)}
           </p>
           <button onClick={() => removeItem(index)}> - </button>
-          <button onClick={() => addItem(index)}> + </button>
+          <button onClick={() => addItem(element, index)}> + </button>
         </div>
       )
   }
 
   let renderedText = (
     <div id="ShopList">
-      {props.listedElements.map((element, index) =>
+      {props.sellList.map((element, index) =>
         renderTextContent(element, index))}
     </div>
   );

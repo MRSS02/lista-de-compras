@@ -7,20 +7,20 @@ import React, { useState, useEffect } from "react"
 
 function App() {
 
-  let listedElements = [
-    "A", "B", "C", "D", "E", "F", "G", "H", "I", "J"
+  const sellList = [
+    { name: "A", descrption: "A", price: "0.5"},
+    { name: "B", descrption: "B", price: "0.25"},
+    { name: "C", descrption: "C", price: "1"},
   ]
-  let listedPrice = [
-    "0.25", "0.5", "1", "5.25", "4", "5", "6", "7", "8", "9"
-  ]
-  let initializeBuyQuantity = []
-  for (let x = 0; x < listedElements.length; x++)
-   initializeBuyQuantity[x] = 0;
-  const [list, setList] = useState([]);
-  const [price, setPrice] = useState([]);
-  const [id, setId] = useState([]);
-  const [buyQuantity, setBuyQuantity] = useState(initializeBuyQuantity);
+  const [buyList, setBuyList] = useState([]);
+  let intializeBuyQuantity = [];
+  for (let x = 0; x < sellList.length; x++) intializeBuyQuantity[x] = 0;
   const [totalValue, setTotalValue] = useState(0)
+  const [buyQuantity, setBuyQuantity] = useState(intializeBuyQuantity);
+  function save() {
+    alert("A sua lista foi salva!")
+    console.log(JSON.stringify(buyList))
+  }
 
   useEffect(() => {
   let previewTotal = calculateTotal()
@@ -28,8 +28,8 @@ function App() {
   })
   function calculateTotal() {
     let total = 0
-    for (let x = 0; x < listedElements.length; x++) {
-      total += listedPrice[x] * buyQuantity[x]
+    for (let x = 0; x < buyList.length; x++) {
+      total += buyList[x].price * buyQuantity[buyList[x].id]
     }
     return total;
   }
@@ -41,14 +41,13 @@ function App() {
        <h1>Gerador de Lista de Compras</h1>
        <p>Organize sua lista de compras mais eficientemente com o Gerador de Lista de Compras!</p>
       </div>
-      <ShopList listedElements={listedElements} price={price}
-      setPrice={setPrice} listedPrice={listedPrice}
-      setBuyQuantity={setBuyQuantity} setList={setList}
-      buyQuantity={buyQuantity} list={list}
-      id={id} setId={setId}
-      setTotalValue={setTotalValue} totalValue={totalValue}/>
-      <ListShow buyQuantity={buyQuantity} price={price} list={list}
-      totalValue={totalValue} id={id}/>
+      <ShopList sellList={sellList} setBuyQuantity={setBuyQuantity}
+      buyList={buyList} setBuyList={setBuyList}
+      buyQuantity={buyQuantity} totalValue={totalValue}
+      setTotalValue={setTotalValue}/>
+      <ListShow sellList={sellList} buyList={buyList}
+      buyQuantity={buyQuantity} totalValue={totalValue}/>
+      <button onClick={save}>Salvar</button>
     </div>
   );
 }
