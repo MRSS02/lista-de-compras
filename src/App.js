@@ -14,10 +14,10 @@ function App() {
     { name: "RT 3030",
     description: "O mais novo lançamento de entrada da Nsomia em placas de vídeo",
     price: "5000"},
-    { name: "Levantando cortador de teia 5990 xis",
+    { name: "Ascensor cortador de teia 5990 queijo",
     descrption: "O melhor processador do mundo, construído pela Ame Receba",
     price: "27000"},
-    { name: "não inove 11900 ",
+    { name: "não inove 11900",
     description: "Churrasqueira de alta potência, projetada pela Dentro Telefônica",
     price: "3200"},
     { name: "não inove 11900 capa",
@@ -29,6 +29,15 @@ function App() {
     { name: "The Subtitles of Link Skyward Sword de novo edition",
     description: "O clássico jogo do Sintendo URSS, agora para Sintendo Nwitch",
     price: "300"},
+    { name: "Hyper Mario All Stars 35 years edition (limitado!!!!!)",
+    description: "Jogue clássicos 3D do Hyper Mario, apenas para Sintendo Nwitch!!! Disponível até 31 de junho",
+    price: "350"},
+    { name: "Punk Eletrônico 2077",
+    description: "Jogo do ano, no qual você é um robô punk e pode fazer tudo, inclusive transformar pessoas no cristo redentor",
+    price: "300"},
+    { name: "Sintendo Nwitch luz",
+    description: "Sintendo Nwitch, só que colorido neon e sem a funcionalidade que faz dele um Sintendo Nwitch. Mas tem rgb",
+    price: "1700"},
 
 
   ]
