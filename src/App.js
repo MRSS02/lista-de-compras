@@ -8,9 +8,29 @@ import React, { useState, useEffect } from "react"
 function App() {
 
   const sellList = [
-    { name: "A", descrption: "A", price: "0.5"},
-    { name: "B", descrption: "B", price: "0.25"},
-    { name: "C", descrption: "C", price: "1"},
+    { name: "Sintendo Nwitch",
+    description: "O mais novo console da Sintendo",
+    price: "3000"},
+    { name: "RT 3030",
+    description: "O mais novo lançamento de entrada da Nsomia em placas de vídeo",
+    price: "5000"},
+    { name: "Levantando cortador de teia 5990 xis",
+    descrption: "O melhor processador do mundo, construído pela Ame Receba",
+    price: "27000"},
+    { name: "não inove 11900 ",
+    description: "Churrasqueira de alta potência, projetada pela Dentro Telefônica",
+    price: "3200"},
+    { name: "não inove 11900 capa",
+    description: "Churrasqueira de alta potência e desbloqueada, projetada pela Dentro Telefônica",
+    price: "4000"},
+    { name: "Team Rocket rx6900xt",
+    description: "A placa de vídeo mais rápida do mundo, feita na arquitetura Hey Listen, mas sem suporte a traços rajantes",
+    price: "10100"},
+    { name: "The Subtitles of Link Skyward Sword de novo edition",
+    description: "O clássico jogo do Sintendo URSS, agora para Sintendo Nwitch",
+    price: "300"},
+
+
   ]
   const [buyList, setBuyList] = useState([]);
   let intializeBuyQuantity = [];

@@ -24,8 +24,8 @@ function ShopList(props) {
     }
     if (props.buyQuantity[index] == 1) {
       let newList = [...props.buyList]
-      newList.splice(props.buyList.indexOf(props.buyList.find(item => item.id = index)), 1)
-      console.log(props.buyList.indexOf(props.buyList.find(item => item.id = index)))
+      newList.splice(props.buyList.indexOf(props.buyList.find(item => item.id === index)), 1)
+      console.log(props.buyList.indexOf(props.buyList.find(item => item.id === index)))
       props.setBuyList([...newList])
     }
     props.setBuyQuantity([...newBuyQuantity])
@@ -34,15 +34,18 @@ function ShopList(props) {
   function renderTextContent(element, index) {
       return (
         <div className="ListedItem">
-          <h3>{element.name}</h3>
-          <p className="ListedDetails">
-            {element.description} <br />
+          <div className="ListedDetails">
+            <p>
+              <h3>{element.name}</h3>
+               <br />
 
-            R${Math.floor(element.price)},
-            {(element.price - Math.floor(element.price)).toFixed(2).substring(2)}
-          </p>
-          <button onClick={() => removeItem(index)}> - </button>
-          <button onClick={() => addItem(element, index)}> + </button>
+              R${Math.floor(element.price)},
+              {(element.price - Math.floor(element.price)).toFixed(2).substring(2)}
+            </p>
+            <button className="button" onClick={() => removeItem(index)}> - </button>
+            <button className="button" onClick={() => addItem(element, index)}> + </button>
+          </div>
+          <p>{element.description}</p>
         </div>
       )
   }
