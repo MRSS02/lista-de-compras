@@ -76,7 +76,7 @@ function App() {
       setTotalValue={setTotalValue}/>
       <ListShow sellList={sellList} buyList={buyList}
       buyQuantity={buyQuantity} totalValue={totalValue}/>
-      <button onClick={save}>Salvar</button>
+      <button className="save" onClick={save}>Salvar</button>
     </div>
   );
 }

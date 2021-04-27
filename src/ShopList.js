@@ -42,8 +42,10 @@ function ShopList(props) {
               R${Math.floor(element.price)},
               {(element.price - Math.floor(element.price)).toFixed(2).substring(2)}
             </p>
-            <button className="button" onClick={() => removeItem(index)}> - </button>
-            <button className="button" onClick={() => addItem(element, index)}> + </button>
+
+              <button className="button" onClick={() => removeItem(index)}> - </button>
+              <button className="button" onClick={() => addItem(element, index)}> + </button>
+            
           </div>
           <p>{element.description}</p>
         </div>

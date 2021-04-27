@@ -23,7 +23,7 @@ function ListShow(props) {
       {props.buyList.map((element, index) =>
         renderTextContent(element, index))}
       <br />
-      <div className="ListedItem">
+      <div>
         Valor total: R${Math.floor(props.totalValue)},
         {(props.totalValue - Math.floor(props.totalValue)).toFixed(2).substring(2)}
       </div>
