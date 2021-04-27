@@ -15,7 +15,7 @@ function App() {
     description: "O mais novo lançamento de entrada da Nsomia em placas de vídeo",
     price: "5000"},
     { name: "Ascensor cortador de teia 5990 queijo",
-    descrption: "O melhor processador do mundo, construído pela Ame Receba",
+    description: "O melhor processador do mundo, construído pela Ame Receba",
     price: "27000"},
     { name: "não inove 11900",
     description: "Churrasqueira de alta potência, projetada pela Dentro Telefônica",
