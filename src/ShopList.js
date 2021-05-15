@@ -45,9 +45,11 @@ function ShopList(props) {
 
               <button className="button" onClick={() => removeItem(index)}> - </button>
               <button className="button" onClick={() => addItem(element, index)}> + </button>
-            
+
           </div>
           <p>{element.description}</p>
+          <img src={process.env.PUBLIC_URL + element.image}
+          className="image" alt="imagem"></img>
         </div>
       )
   }
